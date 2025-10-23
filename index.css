@@ -1,3 +1,5 @@
+
+
 :root{
   --background: #000000; /* black */
   --text: #ffffff;       /* white */
@@ -15,16 +17,29 @@
   box-sizing:border-box;
   font-weight: 100;
 }
+
 html, body {
   height:100%;
   margin:0;
   padding:0;
   background:var(--background);
-  color:var(--text);
-  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  color: var(--text);
+
+  font-family: "Bungee Hairline", Arial, Helvetica, sans-serif;
+  font-family: "Outfit", Arial, Helvetica, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale
 }
+
+/* 
+.bung-font {
+  font-family: "Bungee Hairline", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+} */
 
 .container {
   padding: 10px;
