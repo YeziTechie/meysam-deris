@@ -105,18 +105,10 @@ header .name h1 {
 
 
 .h-gallery {
-  display: flex;
-  width:100%;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  width: max-content;
-  overflow-x: auto; /* 'auto' instead of 'scroll' avoids showing scrollbar when not needed */
-  overflow-y: hidden;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch; /* smoother on mobile */
+
 }
 
-main {
+.gallery-title {
   margin-top: 200px;
 }
 
@@ -125,20 +117,18 @@ main {
   flex-direction: column;
 }
 
-.h-gallery {
+
+.h-contents {
+  display: flex;
   width: 100%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  column-gap: 30px;
   overflow-x: auto;
   overflow-y: hidden;
   margin-top: 50px;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-}
-
-.h-contents {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap; /* no wrapping */
-  column-gap: 30px;
 }
 
 .h-content {
@@ -205,7 +195,8 @@ main {
   width: 45%;
   margin: 0px 5px;
   height: max-content;
-  border-radius: 15px;
+  border-radius: 25px;
+  border: 1px solid blue;
   box-sizing: border-box;
 }
 
