@@ -1,7 +1,7 @@
 :root{
   --background: #000000; /* black */
   --text: #ffffff;       /* white */
-  --muted:  #bdbdbda9;     /* lighter text / gray */
+  --muted:  #ecececa9;     /* lighter text / gray */
   --theme:  #d1fe17;     /* accent */
   --page-padding: 16px;
   --radius: 8px;
@@ -31,7 +31,7 @@ html, body {
   padding-top: 70px;
 }
 
-img, video {
+img {
   width: 50px;
 }
 
@@ -97,35 +97,115 @@ header .name h1 {
   color: var(--muted);
 }
 
+
+.h-gallery > * {
+  flex: 0 0 auto; /* prevents children from shrinking */
+  margin-right: 10px; /* optional spacing */
+}
+
+
+.h-gallery {
+  display: flex;
+  width:100%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: max-content;
+  overflow-x: auto; /* 'auto' instead of 'scroll' avoids showing scrollbar when not needed */
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* smoother on mobile */
+}
+
+main {
+  margin-top: 200px;
+}
+
 .gallery {
   display: flex;
   flex-direction: column;
 }
 
+.h-gallery {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-top: 50px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.h-contents {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; /* no wrapping */
+  column-gap: 30px;
+}
+
+.h-content {
+  flex: 0 0 auto; /* prevent shrinking */
+  width: 300px; /* fixed width per item */
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+.h-media-desc-title {
+  font-size: 14px;
+  color: var(--muted);
+  margin-left:5px;
+  margin-top: 10px;
+}
+.h-media-desc-text {
+  font-size: 18px;
+  margin-left:5px;
+  margin-top: 5px;
+}
+
+.h-media-desc-title h4 {
+  margin: 0;
+}
+
+.h-media-desc-text p {
+  margin: 0;
+}
+
+.h-gallery .media {
+  display: flex;
+  justify-content: center;
+  height: 200px;
+}
+.gallery-video {
+  border-radius: 22px;
+  width: 100%;
+  object-fit:cover;
+  height: 100%;
+}
+
+
+.gallery-title h4{
+ color: var(--muted);
+ font-size: 18px;
+ font-style: italic;
+}
+
 .title h2 {
   color: var(--theme);
   font-size: 32px;
+  font-weight: 300;
 }
 
 .contents {
-  border: 1px solid rgb(36, 36, 36);
-  box-shadow: 0px 0px 30px #d0fe1763;
-  border-radius: 20px;
-  padding: 5px;
-
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  row-gap: 10px;
 }
 
 .content {
   width: 45%;
+  margin: 0px 5px;
   height: max-content;
-  border: 1px solid var(--theme);
   border-radius: 15px;
-  padding: 10px;
-  margin: 5px;
   box-sizing: border-box;
 }
 
@@ -135,6 +215,11 @@ header .name h1 {
 
 img {
   width: 100%;
+}
+
+.media-desc-title {
+  color: var(--theme);
+  font-size: 22px;
 }
 
 .video-container {
