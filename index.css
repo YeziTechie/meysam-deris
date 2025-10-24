@@ -199,29 +199,23 @@ header .name h1 {
 }
 
 .contents {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  row-gap: 10px;
+  column-count: 2;
+  column-gap: 10px;
 }
 
 .content {
-  width: 45%;
-  margin: 0px 5px;
-  height: max-content;
-  border-radius: 25px;
-  border: 1px solid blue;
-  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10px;
+  break-inside: avoid; /* prevents image breaking */
 }
 
-.media {
+.media img {
   width: 100%;
+  border-radius: 18px;
+  display: block;
 }
 
-img {
-  width: 100%;
-}
 
 .media-desc-title {
   color: var(--theme);
@@ -229,7 +223,6 @@ img {
 }
 
 .video-container {
-
   margin-top: 400px;
   height: 2000px;
 }
@@ -275,6 +268,7 @@ img {
 
 .brand-track-2 {
   display: flex;
+  flex-direction: row-reverse;
   gap: 40px;
   animation: scrollBrands-2 30s linear infinite;
   width: max-content;
@@ -290,8 +284,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: grayscale(1);
-  opacity: 0.8;
+  /* filter: grayscale(1); */
   transition: 0.3s;
 }
 
@@ -355,7 +348,8 @@ img {
 }
 
 .field input:focus {
-    box-shadow: 8px 8px 10px #d0fe1759;
+    box-shadow: 15px 15px 20px #d0fe1759;
+    transform: translate(-5px, -5px);
 }
 
 .btn {
