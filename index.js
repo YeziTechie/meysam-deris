@@ -1,19 +1,30 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
-const vid = document.querySelector(".js-video");
+const svg = document.querySelector("svg");
+const path = svg.querySelector("path");
 
-vid.addEventListener("loadedmetadata", () => {
-  gsap.registerPlugin(ScrollTrigger);
+const svgContainer = document.querySelector('.svg-container');
+svgContainer.style.height = document.documentElement.scrollHeight + 'px';
 
-  gsap.to(vid, {
-    currentTime: vid.duration,
+const pathLength = path.getTotalLength();
+
+// Initialize stroke dash style
+path.style.strokeDasharray = pathLength;
+path.style.strokeDashoffset = pathLength;
+
+gsap.fromTo(
+  path,
+  { strokeDashoffset: pathLength },
+  {
+    strokeDashoffset: 0,
+    duration: 10,
     ease: "none",
     scrollTrigger: {
-      trigger: ".video-container",
+      trigger: ".svg-container",
       start: "top top",
       end: "bottom bottom",
       scrub: true,
     },
-  });
-});
+  }
+);
+

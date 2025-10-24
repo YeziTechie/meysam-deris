@@ -243,8 +243,7 @@ header .name h1 {
 .brands {
   text-align: center;
   padding: 80px 0;
-  background: #0b0b0b;
-  color: #fff;
+  background: #0b0b0b2c;
 }
 
 .title h3 {
@@ -371,4 +370,25 @@ header .name h1 {
 .footer-content {
   background-color: #d0fe171a;
   padding: 10px;
+}
+
+.svg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+svg {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+}
+
+
+.blurry {
+  background-color: transparent;
+  backdrop-filter: blur(10px);
 }
