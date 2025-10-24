@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Ewert&family=Handjet:wght@100..900&family=Megrim&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&family=Quicksand:wght@300..700&family=Sulphur+Point:wght@300;400;700&family=Ysabeau:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
   
   </head>
@@ -21,7 +22,7 @@
         </div>
 
           <div class="container">
-          <div class="top-nav">
+          <!-- <div class="top-nav">
             <div class="logo">
               <img src="image.png" alt="">
             </div>
@@ -29,6 +30,11 @@
               <div class="l1"></div>
               <div class="l2"></div>
             </div>
+          </div> -->
+          <div class="fixed-nav">
+            <button class="nav-item" data-target="#videography">Videography</button>
+            <button class="nav-item" data-target="#photography">Photography</button>
+            <button class="nav-item" data-target="#ai">AI</button>
           </div>
 
           <header>
@@ -50,7 +56,7 @@
               </div>
             </section>
 
-            <section class="h-gallery">
+            <section id="videography" class="h-gallery">
 
             <div class="title gallery-title blurry">
               <h2 class="bung-font">VIDEOGRAPHY </h2>
@@ -151,7 +157,7 @@
 
             </section>
 
-            <section class="gallery blurry">
+            <section id="photography" class="gallery blurry">
 
               <div class="title gallery-title blurry">
                 <h2>PHOTOGRAPHY</h2>
@@ -287,6 +293,11 @@
 
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollSmoother.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.0/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.0/ScrollTrigger.min.js"></script>
+
     <script>
       const vid = document.querySelector(".js-video-1");
       const vid2 = document.querySelector(".js-video-2");
@@ -321,9 +332,9 @@
           },
         });
       });
-    </script>
-    <script src="https://unpkg.com/gsap@3/dist/ScrollSmoother.min.js"></script>
 
+
+    </script>
     <script src="./index.js"></script>
   </body>
 </html>

@@ -24,9 +24,7 @@ html, body {
   padding:0;
   background:var(--background);
   color: var(--text);
-
-  font-family: "Bungee Hairline", Arial, Helvetica, sans-serif;
-  font-family: "Outfit", Arial, Helvetica, sans-serif;
+  font-family: "nunito", Arial, monospace, sans-serif;
   font-optical-sizing: auto;
   font-weight: 100;
   font-style: normal;
@@ -118,10 +116,6 @@ header .name h1 {
   margin-right: 10px; /* optional spacing */
 }
 
-
-.h-gallery {
-
-}
 
 .gallery-title {
   margin-top: 200px;
@@ -431,3 +425,47 @@ header .name h1 {
   backdrop-filter: blur(10px);
 }
 
+
+.fixed-nav {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.nav-item {
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  font-weight: 100;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  font-family: 'nunito', 'outfit', monospace;
+  font-size: 16px;
+  color: var(--text);
+  transition: all 1s ease;
+}
+
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: var(--theme);
+  display: block;
+  transition: all 1s ease;
+
+}
+
+.section {
+  height: 100vh;
+  padding-top: 60px; /* to account for fixed nav */
+}
