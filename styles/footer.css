@@ -1,12 +1,14 @@
 .footer-content {
-  background-color: #d0fe171a;
-  backdrop-filter: blur(50px);
+  background-color: transparent;
+  backdrop-filter: blur(30px);
+  border: 1px solid var(--theme);
   padding: 10px;
 }
 
 footer .info p {
   padding-left: 10px;
   border-left: 5px solid var(--theme);
+  color: var(--text);
 }
 
 .social a{
