@@ -1,15 +1,16 @@
 [X] replacement of the current medias
 [X] background scroll stuff and blury divs
-[ ] headers animations and cool stuff
+[X] options to click at top
 [X] meysam deris svg animation
 [X] video scroll animation.
-[ ] footer
-[ ] options to click at top
-[ ] Smooth scroll
-[ ] clicking opens the media and shows it cool
+[X] headers animations and cool stuff
+[X] footer
+[X] add ai as well
+[X] larger screen css
 
-[ ] larger screen css
 [ ] contact form logicality
-[ ] final redesign of all that is and make it very cool
 [ ] show more page
+[ ] clicking opens the media and shows it cool
+[ ] Smooth scroll
+[ ] final redesign of all that is and make it very cool
 [ ] backend and cms

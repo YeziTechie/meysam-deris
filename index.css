@@ -18,6 +18,7 @@ header .name h1 {
 
 .video-container {
   margin-top: 400px;
+  background-color: black;
   height: 2000px;
 }
 
@@ -42,6 +43,10 @@ header .name h1 {
   margin-inline: auto;
   line-height: 1.4;
   color: #f0f0f0;
+}
+
+.contact .title h2{
+  color: var(--text);
 }
 
 .contact {
@@ -91,10 +96,7 @@ header .name h1 {
   border-radius: 4px;
 }
 
-.footer-content {
-  background-color: #d0fe171a;
-  padding: 10px;
-}
+
 
 .svg-container {
   position: absolute;
@@ -131,26 +133,58 @@ header .name h1 {
   stroke-dasharray: 50;
   stroke-dashoffset: 50;
   animation: name 4s ease-in-out forwards;
-  animation-delay: 5s;
+  animation-delay: 1.4s;
 }
 
 @keyframes name {
   0% {
     stroke-dashoffset: 50;
+    filter: blur(1px);
   }
 
   80% {
     fill: transparent;
+    stroke-width: 0.1;
   }
 
   100% {
-    fill: rgba(255, 255, 255, 0.342);
+    fill: rgba(255, 255, 255, 0.671);
     stroke-dashoffset: 0;
+    stroke-width: 0.4;
+
+    filter: blur(0px);
   }
 }
 
-
 .blurry {
   background-color: transparent;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  border: 3px solid black;
+}
+/* 
+
+
+.blurry-h {
+  background-color: transparent;
+  backdrop-filter: blur(100px);
+  border: 5px solid black;
+}
+ */
+
+.btn button {
+  backdrop-filter: blur(20px);
+  background-color: #d0fe171a;
+  border: 1px solid var(--theme);
+  color: var(--text);
+  border-radius: 0 ;
+  transition: ease 1s all;
+}
+
+.btn button:hover {
+  backdrop-filter: blur(20px);
+  background-color: #d0fe171a;
+  border: 1px solid var(--theme);
+  color: transparent;
+  border-radius: 0 ;
+  box-shadow: 0px 0px 50px var(--theme);
 }
