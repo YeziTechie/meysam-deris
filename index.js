@@ -1,7 +1,9 @@
+
+
 gsap.registerPlugin(ScrollTrigger);
 
-const svg = document.querySelector("svg");
-const path = svg.querySelector("path");
+const svg = document.querySelector(".line-svg");
+const path = svg.querySelector(".line-path");
 
 const svgContainer = document.querySelector('.svg-container');
 svgContainer.style.height = document.documentElement.scrollHeight + 'px';
