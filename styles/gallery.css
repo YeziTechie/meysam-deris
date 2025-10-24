@@ -1,7 +1,6 @@
 
 .h-gallery > * {
   flex: 0 0 auto; /* prevents children from shrinking */
-  margin-right: 10px; /* optional spacing */
 }
 
 

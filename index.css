@@ -157,9 +157,10 @@ header .name h1 {
 }
 
 .blurry {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.075);
   backdrop-filter: blur(20px);
   border: 3px solid black;
+  padding: 5px;
 }
 /* 
 
@@ -187,4 +188,8 @@ header .name h1 {
   color: transparent;
   border-radius: 0 ;
   box-shadow: 0px 0px 50px var(--theme);
+}
+
+main {
+  width: 100%;
 }
