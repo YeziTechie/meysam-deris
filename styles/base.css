@@ -18,6 +18,8 @@
 
 html, body {
   height:100%;
+  overflow-x: hidden;
+  width: 100%;
   margin:0;
   padding:0;
   background:var(--background);
@@ -33,7 +35,6 @@ html, body {
 
 .container {
   padding: 10px;
-  margin: 0 auto;
   padding-top: 70px;
 }
 

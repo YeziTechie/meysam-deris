@@ -1,6 +1,6 @@
 
 .name {
-  margin-top: 40vh;
+  margin-top: 50px;
 
 }
 
@@ -37,7 +37,7 @@
   100% {
     fill: transparent;
     stroke-dashoffset: 0;
-    stroke-width: 0.4;
+    stroke-width: 0.1;
 
     filter: blur(0px);
   }

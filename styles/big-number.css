@@ -17,7 +17,7 @@
 }
 
 .big-number .line {
-  height: 20rem;
+  height: 5rem;
   width: 2px;
   background-color: var(--theme);
 }
