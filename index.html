@@ -411,8 +411,8 @@ window.addEventListener("resize", resizeSVG);
       scrollTrigger: {
         trigger: `.js-scroll-video-${i + 1}`,
         start: "top bottom",
-        end: "bottom bottom",
-        scrub: true,
+        end: "bottom top",
+        scrub: 0.2,
       },
     });
   });
