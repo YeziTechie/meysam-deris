@@ -1,0 +1,50 @@
+.contact .title h2{
+  color: var(--text);
+}
+
+.contact {
+  border: 1px solid var(--theme);
+  padding: 10px;
+  border-radius: 4px;
+
+  margin: 200px 0px;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+.field input {
+  outline: none;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.075);
+  color: var(--text);
+  width: 90%;
+  margin-left: 10px;
+  box-shadow: 5px 5px 5px #d0fe1767;
+  box-sizing: border-box;
+  padding: 4px;
+  border: 1px solid var(--theme);
+
+  transition: all 0.5s ease;
+}
+
+.field input:focus {
+    box-shadow: 15px 15px 20px #d0fe1759;
+    transform: translate(-5px, -5px);
+}
+
+.btn {
+  display: flex;
+  justify-content:center;
+  margin: 20px 0px;
+  margin-top: 40px;
+}
+
+.btn button {
+  background-color: #d0fe17;
+  outline: none;
+  padding: 5px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+}

@@ -108,3 +108,7 @@
   display: block;
 }
 
+.media-desc-title {
+  color: var(--theme);
+  font-size: 22px;
+}

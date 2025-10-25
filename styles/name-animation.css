@@ -1,0 +1,44 @@
+
+.name {
+  margin-top: 40vh;
+
+}
+
+.name-svg {
+  display: block;
+  width: 90%; /* or 80%, depending on your layout */
+  height: auto;
+  max-width: 800px; /* optional limit */
+  margin: 0 auto; /* centers it */
+}
+
+.name-path {
+  width: 100%;
+  fill: transparent;
+  stroke: var(--theme);
+  stroke-width: 0.1;
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  animation: name 4s ease-in-out forwards;
+  animation-delay: 1.4s;
+}
+
+@keyframes name {
+  0% {
+    stroke-dashoffset: 50;
+    filter: blur(1px);
+  }
+
+  80% {
+    fill: transparent;
+    stroke-width: 0.1;
+  }
+
+  100% {
+    fill: transparent;
+    stroke-dashoffset: 0;
+    stroke-width: 0.4;
+
+    filter: blur(0px);
+  }
+}
