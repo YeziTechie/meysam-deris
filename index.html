@@ -27,15 +27,13 @@
 
 
       <div class="container">
-        
-      <svg class="line-svg" viewBox="0 0 406 8454" preserveAspectRatio="none">
-        <path class="path-line"
-          d="M0.5 0V848L233.708 984L476.5 848V516.5H233.708V1072.5L194.46 1124L262.003 1194L194.46 1284.5L262.003 1350.5L194.46 1468L262.003 1571L194.46 1672L262.003 1772.5L194.46 1871.5L262.003 1985L194.46 2098L262.003 2195L194.46 2306L262.003 2417.5H399.372V3014.5H72.151V2744.5H233.708V3198L169.815 3125.5H290.299V3465.5H45.6812V3889.5L468.742 3465.5V3972H190.809V4275H119.158V4614.5H55.2651V4888.5H0.956376V5574.5H55.2651V5378.5H410.326V5574.5H443.413M476.5 5574.5H443.413M443.413 5574.5V5790.5L115.507 6002.5V5842C205.108 5945 382.03 6148.5 372.903 6138.5C363.775 6128.5 369.1 6043.67 372.903 6002.5L115.507 6239.5V6138.5L372.903 6507V6383.5L115.507 6731.5V6608L372.903 6892.5V6777L115.507 7057V6931.5L372.903 7215.5V7102.5L115.507 7452.5V7318.5L372.903 7640V7530.5L115.507 7827.5V7720L372.903 7990V7872.5L115.507 8134V8014.5L372.903 8266V8152.5L115.507 8391.5V8470H372.903C377.314 8443.83 383.491 8391.5 372.903 8391.5C362.315 8391.5 290.907 8391.5 256.527 8391.5"
-          fill="none"
-          stroke="#D0FE17"
-          stroke-width="2"
-        />
-      </svg>
+              
+        <div class="svg-container">
+          <svg class="line-svg" width="100%" height="100%" viewBox="0 0 406 8454" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.5 0V848L233.708 984L476.5 848V516.5H233.708V1072.5L194.46 1124L262.003 1194L194.46 1284.5L262.003 1350.5L194.46 1468L262.003 1571L194.46 1672L262.003 1772.5L194.46 1871.5L262.003 1985L194.46 2098L262.003 2195L194.46 2306L262.003 2417.5H399.372V3014.5H72.151V2744.5H233.708V3198L169.815 3125.5H290.299V3465.5H45.6812V3889.5L468.742 3465.5V3972H190.809V4275H119.158V4614.5H55.2651V4888.5H0.956376V5574.5H55.2651V5378.5H410.326V5574.5H443.413M476.5 5574.5H443.413M443.413 5574.5V5790.5L115.507 6002.5V5842C205.108 5945 382.03 6148.5 372.903 6138.5C363.775 6128.5 369.1 6043.67 372.903 6002.5L115.507 6239.5V6138.5L372.903 6507V6383.5L115.507 6731.5V6608L372.903 6892.5V6777L115.507 7057V6931.5L372.903 7215.5V7102.5L115.507 7452.5V7318.5L372.903 7640V7530.5L115.507 7827.5V7720L372.903 7990V7872.5L115.507 8134V8014.5L372.903 8266V8152.5L115.507 8391.5V8470H372.903C377.314 8443.83 383.491 8391.5 372.903 8391.5C362.315 8391.5 290.907 8391.5 256.527 8391.5" fill="none" stroke="#D0FE17" stroke-width="1"/>
+          </svg>
+
+        </div>
       <!-- <div class="top-nav">
         <div class="logo">
           <img src="image.png" alt="">
@@ -389,55 +387,55 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.0/ScrollTrigger.min.js"></script>
 
     <script>
-      gsap.registerPlugin(ScrollTrigger);
 
-      const vids = document.querySelectorAll(".js-video-1, .js-video-2");
+gsap.registerPlugin(ScrollTrigger);
 
-      vids.forEach((video, i) => {
-        if (!video) return; // prevent null errors
+const vid = document.querySelector(".js-video-1");
+const vid2 = document.querySelector(".js-video-2");
 
-        video.addEventListener("loadedmetadata", () => {
-          gsap.to(video, {
-            currentTime: video.duration,
-            ease: "none",
-            scrollTrigger: {
-              trigger: `.js-scroll-video-${i + 1}`,
-              start: "top bottom",
-              end: "bottom bottom",
-              scrub: true,
-            },
-          });
-        });
-      });
+const svgContainer = document.querySelector(".svg-container");
+const svg = document.querySelector(".line-svg");
+const path = svg.querySelector("path");
 
-      const svgContainer = document.querySelector(".svg-container");
-      const svg = document.querySelector(".line-svg");
-      const path = svg.querySelector(".path-svg");
+function resizeSVG() {
+  svgContainer.style.height = `${document.documentElement.scrollHeight}px`;
+}
+resizeSVG();
+window.addEventListener("resize", resizeSVG);
 
-      function resizeSVG() {
-        svg.setAttribute("height", document.documentElement.scrollHeight);
-      }
-      resizeSVG();
-      window.addEventListener("resize", resizeSVG);
+[vid, vid2].forEach((video, i) => {
+  video.addEventListener("loadedmetadata", () => {
+    gsap.to(video, {
+      currentTime: video.duration,
+      ease: "none",
+      scrollTrigger: {
+        trigger: `.js-scroll-video-${i + 1}`,
+        start: "top bottom",
+        end: "bottom bottom",
+        scrub: true,
+      },
+    });
+  });
+});
 
-      const pathLength = path.getTotalLength();
-      path.style.strokeDasharray = pathLength;
-      path.style.strokeDashoffset = pathLength;
+const pathLength = path.getTotalLength();
+path.style.strokeDasharray = pathLength;
+path.style.strokeDashoffset = pathLength;
 
-      gsap.fromTo(path,
-        { strokeDashoffset: pathLength },
-        {
-          strokeDashoffset: 0,
-          ease: "none",
-          scrollTrigger: {
-            trigger: "body",
-            start: "top top",
-            end: "bottom bottom",
-            scrub: true,
-          },
-        }
-      );
-
+gsap.fromTo(
+  path,
+  { strokeDashoffset: pathLength },
+  {
+    strokeDashoffset: 0,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".svg-container",
+      start: "top top",
+      end: "bottom bottom",
+      scrub: true,
+    },
+  }
+);
 
     </script>
     <script src="./scripts/animations.js"></script>

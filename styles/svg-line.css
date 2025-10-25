@@ -1,15 +1,14 @@
-  .svg-line {
-    position: absolute; /* stays on screen while scrolling */
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 3000px;
-    z-index: 20; /* make sure it’s above everything */
-    pointer-events: none; /* avoid blocking interactions */
-  }
+.svg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
 
-  .path-line {
-    width: 100%;
-  }
+.line-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
