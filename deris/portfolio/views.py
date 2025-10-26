@@ -8,21 +8,21 @@ from portfolio.models import Photography, Videography, AI
 
 def photography_list(request):
     photos = Photography.objects.all().order_by('-priority')
-    return render(request, 'portfolio/photography.html', {'photos': photos})
+    return render(request, 'photography.html', {'photos': photos})
 
 def videography_list(request):
     videos = Videography.objects.all().order_by('-priority')
-    return render(request, 'portfolio/videography.html', {'videos': videos})
+    return render(request, 'videography.html', {'videos': videos})
 
 def ai_list(request):
     ai_items = AI.objects.all().order_by('-priority')
-    return render(request, 'portfolio/ai.html', {'ai_items': ai_items})
+    return render(request, 'ai.html', {'ai_items': ai_items})
 
 def profile_page(request):
     photos = Photography.objects.filter(show_on_profile=True).order_by('-priority')[:6]
     videos = Videography.objects.filter(show_on_profile=True).order_by('-priority')[:3]
     ai_items = AI.objects.filter(show_on_profile=True).order_by('-priority')[:6]
-    return render(request, 'portfolio/profile.html', {
+    return render(request, 'index.html', {
         'photos': photos,
         'videos': videos,
         'ai_items': ai_items

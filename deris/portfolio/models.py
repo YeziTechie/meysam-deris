@@ -15,14 +15,14 @@ class BaseWork(models.Model):
         return self.title
 
 
-class AIPost(BaseWork):
+class AI(BaseWork):
     image = models.ImageField(upload_to='ai/images/', blank=True, null=True)
     video = models.FileField(upload_to='ai/videos/', blank=True, null=True)
 
 
-class PhotographyPost(BaseWork):
+class Photography(BaseWork):
     image = models.ImageField(upload_to='photography/', blank=False)
 
 
-class VideographyPost(BaseWork):
+class Videography(BaseWork):
     video = models.FileField(upload_to='videography/', blank=False)
