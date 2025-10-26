@@ -1,95 +1,51 @@
-
 .fixed-nav {
   position: fixed;
-  top: 0px;
+  top: 0;
   left: 0;
   width: 100%;
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
   z-index: 1000;
+  background: rgba(0, 0, 0, 0.205);
+  backdrop-filter: blur(10px);
+}
+
+.nav-logo img {
+  width: 50px;
+  border-radius: 15px;
+  height: auto;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex: 1;
 }
 
 .nav-item {
   padding: 8px 16px;
   border: none;
   cursor: pointer;
-  position: relative;
-  font-weight: 100;
-  background-color: transparent;
-  backdrop-filter: blur(10px);
+  background: transparent;
   font-family: 'nunito', 'outfit', monospace;
+  font-weight: 100;
   font-size: 16px;
   color: var(--text);
   transition: all 1s ease;
+  border-bottom: transparent 1px solid;
 }
 
 .nav-item:hover {
-  box-shadow: 0px 0px 40px var(--theme);
-}
-
-.nav-item.active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 1px;
-  width: 100%;
-  background: var(--theme);
-  display: block;
+  border-bottom: 1px solid var(--theme);
   transition: all 1s ease;
-
 }
 
-
-
-.top-nav {
-  background-color: rgba(255, 255, 255, 0.082);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid #d1fe17;
-  box-shadow: 0px -40px 100px var(--theme);
-  height: 60px;
-  width: 100%;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px;
-
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  left: 0px;
-  z-index: 10;
+@media (max-width: 450px) {
+  .fixed-nav {
+    flex-direction: column;
+  }
 }
 
-.logo {
-  height: 100%;
-}
-
-.logo img {
-  height: 100%;
-}
-
-.menu-btn {
-  background-color: #d0fe17;
-  border: 1px solid black;
-  border-radius: 5px;
-  margin-right: 5px;
-  width: 40px;
-  height: 30px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;    
-}
-
-.l1, .l2 {
-  width: 22px;
-  height: 2px;
-  border-radius: 1px;
-  background-color: black;
-}
