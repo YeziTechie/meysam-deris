@@ -3,6 +3,7 @@
 @media (max-width: 1500px) {
   .container {
     width: 90%;
+    margin: 0 auto;
   }
 }
 /* Tablets */

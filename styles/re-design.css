@@ -10,7 +10,7 @@
 
 .blurry {
   background-color: transparent;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
   border: 3px solid black;
   padding: 5px;
 }
