@@ -40,95 +40,26 @@
       </div>
 
       <div class="h-contents blurry">
-        
-        <div class="h-content">
-          <div class="media">
-            <video class="gallery-video" src=" {% static '/media/videography/veo31_preview_28_1760494412.mp4' %}" autoplay loop muted alt="">
-          </div>
-          <div class="media-desc">
-            <div class="h-media-desc-title">
-              <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-            </div>
-            <div class="h-media-desc-text">
-              <p>Lorem ipsum dolor</p>
-            </div>
-          </div>
-        </div>
 
+      {% for item in ai_items %}
         <div class="h-content">
           <div class="media">
             <div class="skeleton"></div>
-            <video class="gallery-video" src=" {% static '/media/videography/705a4b36-59d3-4cdb-a048-861b56116b87.mp4' %}" autoplay loop muted alt="">
+            {% if item.video %}
+              <video class="gallery-video" src="{{ item.video.url }}" autoplay loop muted playsinline></video>
+            {% elif item.image %}
+              <img src="{{ item.image.url }}" alt="{{ item.title }}">
+            {% else %}
+              <img src="{% static 'images/placeholder.png' %}" alt="placeholder">
+            {% endif %}
           </div>
           <div class="media-desc">
-            <div class="h-media-desc-title">
-              <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-            </div>
-            <div class="h-media-desc-text">
-              <p>Lorem ipsum dolor</p>
-            </div>
+            <div class="h-media-desc-title"><h4>{{ item.title }}</h4></div>
+            <div class="h-media-desc-text"><p>{{ item.description }}</p></div>
           </div>
         </div>
+      {% endfor %}
 
-        <div class="h-content">
-          <div class="media">
-            <div class="skeleton"></div>
-            <video class="gallery-video" src=" {% static '/media/videography/veo31_preview_11_1760489285.mp4' %}" autoplay loop muted alt="">
-          </div>
-          <div class="media-desc">
-            <div class="h-media-desc-title">
-              <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-            </div>
-            <div class="h-media-desc-text">
-              <p>Lorem ipsum dolor</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="h-content">
-          <div class="media">
-            <div class="skeleton"></div>
-            <video class="gallery-video" src=" {% static '/media/videography/veo31_preview_14_1760489633.mp4' %}" autoplay loop muted alt="">
-          </div>
-          <div class="media-desc">
-            <div class="h-media-desc-title">
-              <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-            </div>
-            <div class="h-media-desc-text">
-              <p>Lorem ipsum dolor</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="h-content">
-          <div class="media">
-            <div class="skeleton"></div>
-            <video class="gallery-video" src=" {% static '/media/videography/veo31_preview_19_1760490071.mp4' %}" autoplay loop muted alt="">
-          </div>
-          <div class="media-desc">
-            <div class="h-media-desc-title">
-              <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-            </div>
-            <div class="h-media-desc-text">
-              <p>Lorem ipsum dolor</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="h-content">
-          <div class="media">
-            <div class="skeleton"></div>
-            <video class="gallery-video" src=" {% static '/media/videography/veo31_preview_23_1760490634.mp4' %}" autoplay loop muted alt="">
-          </div>
-          <div class="media-desc">
-            <div class="h-media-desc-title">
-              <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-            </div>
-            <div class="h-media-desc-text">
-              <p>Lorem ipsum dolor</p>
-            </div>
-          </div>
-        </div>
       </div>
 
       <div class="btn show-more">
@@ -158,20 +89,22 @@
 
       <div class="h-contents">
         
-        <div class="h-content blurry">
-          <div class="media">
-            <div class="skeleton"></div>
-            <video class="gallery-video" src=" {% static '/media/IMG_3805.mp4' %}" autoplay loop muted alt="">
-          </div>
-          <div class="media-desc">
-            <div class="h-media-desc-title">
-              <h4>Can you beleive these are AI? </h4>
+        {% for video in videos %}
+          <div class="h-content">
+            <div class="media">
+              <div class="skeleton"></div>
+              <video class="gallery-video" src="{{ video.video.url }}" autoplay loop muted></video>
             </div>
-            <div class="h-media-desc-text">
-              <p>It could take monthes to take them in reality..</p>
+            <div class="media-desc">
+              <div class="h-media-desc-title">
+                <h4>{{ video.title }}</h4>
+              </div>
+              <div class="h-media-desc-text">
+                <p>{{ video.description }}</p>
+              </div>
             </div>
           </div>
-        </div>
+        {% endfor %}
 
       </div>
 
@@ -203,42 +136,14 @@
 
       <div class="contents">
       
-        <div class="content">
-          <div class="media">
-            <img src=" {% static '/media/photography/photo_1_2025-10-24_11-55-45.jpg' %}" alt="">
+        {% for photo in photos %}
+          <div class="content">
+            <div class="media">
+              <div class="skeleton"></div>
+              <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+            </div>
           </div>
-        </div>
-      
-        <div class="content">
-          <div class="media">
-            <img src=" {% static '/media/photography/photo_2_2025-10-24_11-55-45.jpg' %}" alt="">
-          </div>
-        </div>
-      
-        <div class="content">
-          <div class="media">
-            <img src=" {% static '/media/photography/photo_3_2025-10-24_11-55-45.jpg' %}" alt="">
-          </div>
-        </div>
-      
-        <div class="content">
-          <div class="media">
-            <img src=" {% static '/media/photography/photo_4_2025-10-24_11-55-45.jpg' %}" alt="">
-          </div>
-        </div>
-      
-        <div class="content">
-          <div class="media">
-            <img src=" {% static '/media/photography/photo_5_2025-10-24_11-55-45.jpg' %}" alt="">
-          </div>
-        </div>
-      
-        <div class="content">
-          <div class="media">
-            <img src=" {% static '/media/photography/photo_6_2025-10-24_11-55-45.jpg' %}" alt="">
-          </div>
-        </div>
-
+        {% endfor %}
 
       </div>
 

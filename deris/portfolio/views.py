@@ -19,9 +19,9 @@ def ai_list(request):
     return render(request, 'ai.html', {'ai_items': ai_items})
 
 def profile_page(request):
-    photos = Photography.objects.filter(show_on_profile=True).order_by('-priority')[:6]
-    videos = Videography.objects.filter(show_on_profile=True).order_by('-priority')[:3]
-    ai_items = AI.objects.filter(show_on_profile=True).order_by('-priority')[:6]
+    photos = Photography.objects.filter(show_on_profile=True).order_by('-priority')
+    videos = Videography.objects.filter(show_on_profile=True).order_by('-priority')
+    ai_items = AI.objects.filter(show_on_profile=True).order_by('-priority')
     return render(request, 'index.html', {
         'photos': photos,
         'videos': videos,
