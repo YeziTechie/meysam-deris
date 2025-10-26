@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" href="./styles/contact.css">
+    <link rel="stylesheet" href="./styles/name-animation.css">
+    <link rel="stylesheet" href="./styles/re-design.css">
+    <link rel="stylesheet" href="./styles/svg-line.css">
+    <link rel="stylesheet" href="./styles/video-scroll.css">
+    <link rel="stylesheet" href="./styles/base.css">
+    <link rel="stylesheet" href="./styles/skeleton-loader.css">
+    <link rel="stylesheet" href="./styles/animations.css">
+    <link rel="stylesheet" href="./styles/big-number.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/brands.css">
+    <link rel="stylesheet" href="./styles/nav.css">
+    <link rel="stylesheet" href="./styles/gallery.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Ewert&family=Handjet:wght@100..900&family=Megrim&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&family=Quicksand:wght@300..700&family=Sulphur+Point:wght@300;400;700&family=Ysabeau:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
+    {% block style %}{% endblock %}
+  </head>
+
+  <body>
+    <div class="container">
+      {% block body %}{% endblock %}
+      <footer>
+        <div class="footer-content blurry">
+          <div class="title">
+            <h3>Strike up a conversation.</h3>
+          </div>
+          <div class="info">
+            <p>Email: contact@meysamderis.com</p>
+            <p>Number: +971 50 239 7617</p>
+          </div>
+          <div class="social">
+            <a href="https://www.instagram.com/meysamderis/" target="_blank" class="social-link">
+              <img src="instagram-icon-svgrepo-com.svg" alt="Instagram" class="social-icon" />
+            </a>
+          </div>
+          <p class="copyright">&copy; 2023 Meysam Deris. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+    
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollSmoother.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.0/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.0/ScrollTrigger.min.js"></script>
+    <script src="./scripts/animations.js"></script>
+    <script src="./scripts/nav.js"></script>
+    <script src="./scripts/skeleton-loader.js"></script>
+    <script src="./scripts/lazyload.js" defer></script>
+    {% block scripts %}{% endblock %}
+  </body>
+</html>

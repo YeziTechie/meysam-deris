@@ -1,0 +1,46 @@
+from django.conf import settings
+from django.http import JsonResponse
+from django.shortcuts import render
+from django.core.mail import send_mail
+
+from portfolio.models import Photography, Videography, AI
+
+
+def photography_list(request):
+    photos = Photography.objects.all().order_by('-priority')
+    return render(request, 'portfolio/photography.html', {'photos': photos})
+
+def videography_list(request):
+    videos = Videography.objects.all().order_by('-priority')
+    return render(request, 'portfolio/videography.html', {'videos': videos})
+
+def ai_list(request):
+    ai_items = AI.objects.all().order_by('-priority')
+    return render(request, 'portfolio/ai.html', {'ai_items': ai_items})
+
+def profile_page(request):
+    photos = Photography.objects.filter(show_on_profile=True).order_by('-priority')[:6]
+    videos = Videography.objects.filter(show_on_profile=True).order_by('-priority')[:3]
+    ai_items = AI.objects.filter(show_on_profile=True).order_by('-priority')[:6]
+    return render(request, 'portfolio/profile.html', {
+        'photos': photos,
+        'videos': videos,
+        'ai_items': ai_items
+    })
+
+def contact_form(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        
+        full_message = f"From: {name} ({email})\n\n{message}"
+        
+        send_mail(
+            subject="New Contact Form Message",
+            message=full_message,
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=[settings.EMAIL_HOST_USER],
+        )
+        return JsonResponse({'status': 'success'})
+
