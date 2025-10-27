@@ -44,27 +44,29 @@
         <p class="animation opacity">Using cutting-edge AI technology, we bring your artistic and commercial concepts to life through stunning visuals and cinematic videos. From futuristic fashion to conceptual digital art, we merge creativity and innovation to make the impossible possible.</p>
       </div>
 
-      <div class="h-contents blurry">
+      <div class="h-scroll-wrapper">
+        <div class="h-contents blurry">
 
-      {% for item in ai_items %}
-        <div class="h-content">
-          <div class="media">
-            <div class="skeleton"></div>
-            {% if item.video %}
-              <video class="gallery-video" src="{{ item.video.url }}" autoplay loop muted playsinline></video>
-            {% elif item.image %}
-              <img src="{{ item.image.url }}" alt="{{ item.title }}">
-            {% else %}
-              <img src="{% static 'images/placeholder.png' %}" alt="placeholder">
-            {% endif %}
+        {% for item in ai_items %}
+          <div class="h-content">
+            <div class="media">
+              <div class="skeleton"></div>
+              {% if item.video %}
+                <video class="gallery-video" src="{{ item.video.url }}" autoplay loop muted playsinline></video>
+              {% elif item.image %}
+                <img src="{{ item.image.url }}" alt="{{ item.title }}">
+              {% else %}
+                <img src="{% static 'images/placeholder.png' %}" alt="placeholder">
+              {% endif %}
+            </div>
+            <div class="media-desc">
+              <div class="h-media-desc-title"><h4>{{ item.title }}</h4></div>
+              <div class="h-media-desc-text"><p>{{ item.description }}</p></div>
+            </div>
           </div>
-          <div class="media-desc">
-            <div class="h-media-desc-title"><h4>{{ item.title }}</h4></div>
-            <div class="h-media-desc-text"><p>{{ item.description }}</p></div>
-          </div>
+        {% endfor %}
+
         </div>
-      {% endfor %}
-
       </div>
 
       <div class="btn show-more">
@@ -92,25 +94,27 @@
         <p class="animation opacity">From branding films and commercials to music videos and artistic projects, every second is designed with intention, emotion, and style. Our cinematic storytelling transforms your idea into a powerful visual experience that connects deeply with your audience.</p>
       </div>
 
-      <div class="h-contents">
-        
-        {% for video in videos %}
-          <div class="h-content">
-            <div class="media">
-              <div class="skeleton"></div>
-              <video class="gallery-video" src="{{ video.video.url }}" autoplay loop muted></video>
-            </div>
-            <div class="media-desc">
-              <div class="h-media-desc-title">
-                <h4>{{ video.title }}</h4>
+      <div class="h-scroll-wrapper">
+        <div class="h-contents blurry">
+          
+          {% for video in videos %}
+            <div class="h-content">
+              <div class="media">
+                <div class="skeleton"></div>
+                <video class="gallery-video" src="{{ video.video.url }}" autoplay loop muted></video>
               </div>
-              <div class="h-media-desc-text">
-                <p>{{ video.description }}</p>
+              <div class="media-desc">
+                <div class="h-media-desc-title">
+                  <h4>{{ video.title }}</h4>
+                </div>
+                <div class="h-media-desc-text">
+                  <p>{{ video.description }}</p>
+                </div>
               </div>
             </div>
-          </div>
-        {% endfor %}
+          {% endfor %}
 
+        </div>
       </div>
 
       <div class="btn show-more">
