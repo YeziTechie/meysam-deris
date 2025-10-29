@@ -62,6 +62,22 @@ document.addEventListener('DOMContentLoaded', () => {
         messageContainer.scrollTop = messageContainer.scrollHeight;
     }
 
+    // Function to get the CSRF token from the cookie
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.startsWith(name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
     /**
      * Handles the user message, updates history, and calls the AI.
      */
@@ -89,6 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken') 
+
                     // Note: CSRF token logic for security should be added here
                 },
                 // 1. 🎯 NEW: Send the entire conversation history instead of just the last prompt
@@ -97,6 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     prompt: conversationHistory[conversationHistory.length - 1].content // Still send the latest prompt for simplified Django processing
                 })
             });
+
 
             messageContainer.lastChild.remove(); 
 
