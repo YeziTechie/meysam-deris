@@ -1,5 +1,6 @@
 .brands {
   text-align: center;
+  width: 100%;
   padding: 80px 0;
   background: #0b0b0b2c;
 }
@@ -12,6 +13,7 @@
 .brand-rotator {
   position: relative;
   overflow: hidden;
+  overflow-x: hidden;
   width: 100%;
 }
 

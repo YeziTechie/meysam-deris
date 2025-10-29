@@ -4,6 +4,7 @@
 <html lang="en">
   <head>
     <title>{% block title %}My Website{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="{% static 'styles/contact.css' %}">
     <link rel="stylesheet" href="{% static 'styles/name-animation.css' %}">
@@ -19,6 +20,7 @@
     <link rel="stylesheet" href="{% static 'styles/nav.css' %}">
     <link rel="stylesheet" href="{% static 'styles/gallery.css' %}">
     <link rel="stylesheet" href="{% static 'styles/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/ai/ai.css' %}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +31,27 @@
   </head>
 
   <body>
+
+
+    <button id="chat-toggle-btn">
+      <img src="{% static 'media/ai/v.jpg' %}" alt="AI Chat Icon">
+    </button>
+
+    <div id="chat-box" class="hidden">
+        <div class="chat-header">
+            <img src="{% static 'media/ai/running.jpg' %}" alt="AI Profile" class="ai-avatar">
+            <span>Meysam Deris AI Chatbot</span>
+        </div>
+
+        <div class="chat-body" id="chat-messages">
+        </div>
+
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Ask your question...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
     <div class="container">
       {% block body %}{% endblock %}
       <footer>
@@ -60,6 +83,7 @@
     <script src="{% static '/scripts/animations.js' %}"></script>
     <script src="{% static '/scripts/nav.js' %}"></script>
     <script src="{% static '/scripts/skeleton-loader.js' %}"></script>
+    <script src="{% static '/scripts/ai/ai.js' %}"></script>
     <script src="{% static '/scripts/lazyload.js' %}" defer></script>
     {% block scripts %}{% endblock %}
   </body>

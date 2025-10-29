@@ -35,8 +35,13 @@ html, body {
 .container {
   padding: 10px;
   padding-top: 70px;
+  
 }
 
 img {
   width: 50px;
+}
+
+* {
+    box-sizing: border-box; /* Ensures width: 100% includes padding/border */
 }
