@@ -1,12 +1,8 @@
-# *.png
-# *.jpg
-# *.jpeg
-# *.mp4
 venv
 
 __pycache__/
 *.py[cod]
 
-media/
+/media/
 
 .env
