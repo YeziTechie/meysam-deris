@@ -30,6 +30,7 @@
     transform: translate(-50%, -50%); /* Center the box */
     width: 300px;
     height: 500px;
+    max-width: 600px;
     border-radius: 15px;
     backdrop-filter: blur(50px);
     border: 1px solid black;
@@ -40,6 +41,26 @@
     z-index: 1000;
     transition: all 1s ease;
 }
+
+@media (max-width: 1500px) {
+  #chat-box {
+    height: 50vh;
+    width: 100%;
+  }
+}
+@media (max-width: 1024px) {
+  #chat-box {
+    height: 60vh;
+    width: 100%;
+  }
+}
+@media (max-width: 460px) {
+  #chat-box {
+    width: 300px;
+    height: 500px;
+  }
+}
+
 
 .hidden {
     display: none !important;

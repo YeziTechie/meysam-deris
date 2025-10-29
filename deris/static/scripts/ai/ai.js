@@ -131,4 +131,23 @@ document.addEventListener('DOMContentLoaded', () => {
             renderMessage('Sorry, I am currently unavailable.', 'ai');
         }
     }
+
+document.addEventListener('click', (e) => {
+        const isChatOpen = !chatBox.classList.contains('hidden');
+        
+        // Check 1: Is the chat box currently open?
+        if (isChatOpen) {
+            // Check 2: Was the click target NOT the chat box itself 
+            // AND NOT the toggle button?
+            const clickedInsideChat = chatBox.contains(e.target);
+            const clickedToggleBtn = toggleBtn.contains(e.target);
+            
+            if (!clickedInsideChat && !clickedToggleBtn) {
+                // If clicked outside both the box and the button, close the box
+                chatBox.classList.add('hidden');
+                toggleBtn.classList.remove('hidden');
+            }
+        }
+    });
 });
+
