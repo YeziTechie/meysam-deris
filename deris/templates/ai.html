@@ -4,7 +4,7 @@
 {% block title %}Meysam Deris - Otherwordly AI Artist{% endblock %}
 
 {% block style %}
-  <link rel="stylesheet" href="{% static 'styles/videography.css' %}">
+  <!-- <link rel="stylesheet" href="{% static 'styles/videography.css' %}"> -->
 {% endblock %}
 
 {% block body %}
@@ -70,30 +70,31 @@
         <p class="animation opacity">From branding films and commercials to music videos and artistic projects, every second is designed with intention, emotion, and style. Our cinematic storytelling transforms your idea into a powerful visual experience that connects deeply with your audience.</p>
       </div>
 
-      <div class="h-contents">
-        
-        {% for ai in ai_items %}
-          {% if ai.video %}
-            <div class="h-content">
-              <div class="media">
-                <div class="skeleton"></div>
-                <video class="gallery-video" src="{{ ai.video.url }}" autoplay loop muted></video>
-              </div>
-              <div class="media-desc">
-                <div class="h-media-desc-title">
-                  <h4>{{ ai.title }}</h4>
+      <div class="h-scroll-wrapper">
+        <div class="h-contents">
+          
+          {% for ai in ai_items %}
+            {% if ai.video %}
+              <div class="h-content">
+                <div class="media">
+                  <div class="skeleton"></div>
+                  <video class="gallery-video" src="{{ ai.video.url }}" autoplay loop muted></video>
                 </div>
-                <div class="h-media-desc-text">
-                  <p>{{ ai.description }}</p>
+                <div class="media-desc">
+                  <div class="h-media-desc-title">
+                    <h4>{{ ai.title }}</h4>
+                  </div>
+                  <div class="h-media-desc-text">
+                    <p>{{ ai.description }}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          {% endif %}
-        {% endfor %}
+            {% endif %}
+          {% endfor %}
 
+        </div>
       </div>
-
-    </section>cls
+    </section>
 
 
     <section class="blurry contact" style="border: 1px solid var(--theme)">
