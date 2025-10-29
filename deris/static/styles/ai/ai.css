@@ -96,6 +96,9 @@
 /* AI Message (Left Side) */
 .ai-message {
   height: max-content;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
   justify-content: flex-start; /* Keeps message on the left */
 }
 
@@ -149,4 +152,28 @@
   color: var(--theme);
   background-color: var(--theme);
   box-shadow: 0px 0px 50px black;
+}
+
+/* Styling for the WhatsApp button added to the AI message */
+.whatsapp-redirect-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    margin-top: 10px;
+    background-color: #25D366; /* WhatsApp Green */
+    color: white !important;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.whatsapp-redirect-btn:hover {
+    background-color: #128C7E;
+}
+
+.ai-message .whatsapp-btn-wrapper {
+    /* Align the button wrapper to the left, matching the AI message alignment */
+    width: 100%; 
+    text-align: left;
 }

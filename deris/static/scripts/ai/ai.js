@@ -1,17 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- Variable Definitions ---
     const toggleBtn = document.getElementById('chat-toggle-btn');
     const chatBox = document.getElementById('chat-box');
     const sendBtn = document.getElementById('send-btn');
     const userInput = document.getElementById('user-input');
     const messageContainer = document.getElementById('chat-messages');
 
-    // Toggle Button Logic
+    // 1. 🎯 NEW: Array to store conversation history for context
+    const conversationHistory = [];
+
+    // --- Toggle Button Logic ---
     toggleBtn.addEventListener('click', () => {
         toggleBtn.classList.add('hidden');
         chatBox.classList.remove('hidden');
     });
 
-    // Send Button/Enter Key Logic
+    // --- Send Button/Enter Key Logic ---
     sendBtn.addEventListener('click', sendMessage);
     userInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
@@ -23,73 +28,106 @@ document.addEventListener('DOMContentLoaded', () => {
      * Renders a message bubble to the chat container.
      * @param {string} text - The message content.
      * @param {string} sender - 'user' or 'ai'.
+     * @param {object} whatsappData - Contains number and message for the button (optional).
      */
-    function renderMessage(text, sender) {
+    function renderMessage(text, sender, whatsappData = null) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message', `${sender}-message`);
         
         const p = document.createElement('p');
-        p.textContent = text;
+        p.innerHTML = text.replace(/\n/g, '<br>'); 
         
         messageDiv.appendChild(p);
-        messageContainer.appendChild(messageDiv);
         
-        // Auto-scroll to the bottom
+        // 2. 🎯 UPDATED: Check for and use dynamic WhatsApp data
+        if (whatsappData) {
+            const { whatsapp_number, whatsapp_message } = whatsappData;
+            
+            // Build the wa.me link using the dynamic number and pre-filled message
+            const waLink = `https://wa.me/${whatsapp_number}?text=${encodeURIComponent(whatsapp_message)}`;
+            
+            const waButton = document.createElement('a');
+            waButton.href = waLink;
+            waButton.target = "_blank";
+            waButton.textContent = "➡️ Contact Me on WhatsApp";
+            waButton.className = "whatsapp-redirect-btn"; 
+            
+            const buttonWrapper = document.createElement('div');
+            buttonWrapper.classList.add('whatsapp-btn-wrapper');
+            buttonWrapper.appendChild(waButton);
+            messageDiv.appendChild(buttonWrapper);
+        }
+
+        messageContainer.appendChild(messageDiv);
         messageContainer.scrollTop = messageContainer.scrollHeight;
     }
 
     /**
-     * Handles the user message and sends it to the server.
+     * Handles the user message, updates history, and calls the AI.
      */
     function sendMessage() {
         const message = userInput.value.trim();
         if (message === '') return;
-
-        // 1. Display user message immediately (on the right)
+        
         renderMessage(message, 'user');
         
-        // 2. Clear input
-        userInput.value = '';
+        // 1. 🎯 NEW: Add user message to history
+        conversationHistory.push({ role: 'user', content: message });
         
-        // 3. Placeholder for AI response/Server call
-        getAiResponse(message);
+        userInput.value = '';
+        getAiResponse(); // Call without arguments, as data is pulled from history
     }
 
     /**
-     * Placeholder function for calling the Django View.
-     * This is the function you will connect to your Django endpoint.
+     * Connects to the Django backend using the conversation history.
      */
-    async function getAiResponse(userPrompt) {
-        // Show a loading indicator (optional)
-        renderMessage("...", 'ai'); // Simple loading message
+    async function getAiResponse() {
+        renderMessage("...", 'ai'); 
 
         try {
-            // REPLACE THIS FETCH URL with your actual Django endpoint
             const response = await fetch('/ai-endpoint/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    // **NOTE:** You must include the CSRF token here for Django security
-                    // 'X-CSRFToken': getCookie('csrftoken'), 
+                    // Note: CSRF token logic for security should be added here
                 },
-                body: JSON.stringify({ prompt: userPrompt })
+                // 1. 🎯 NEW: Send the entire conversation history instead of just the last prompt
+                body: JSON.stringify({ 
+                    history: conversationHistory, // Send the full history
+                    prompt: conversationHistory[conversationHistory.length - 1].content // Still send the latest prompt for simplified Django processing
+                })
             });
 
-            // Remove the loading message 
             messageContainer.lastChild.remove(); 
 
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error('Server returned an error.');
             }
 
             const data = await response.json();
-            const aiText = data.ai_response; // Assumes your Django view returns a key called 'ai_response'
+            const aiText = data.ai_response;
             
-            // 4. Display AI response (on the left)
-            renderMessage(aiText, 'ai');
+            // 3. 🎯 UPDATED: Check for the new redirect flag from Django
+            const needsWhatsapp = data.whatsapp_redirect === true;
+            
+            let whatsappData = null;
+            if (needsWhatsapp) {
+                 whatsappData = {
+                    whatsapp_number: data.whatsapp_number,
+                    whatsapp_message: data.whatsapp_message
+                 };
+            }
+
+            // 1. 🎯 NEW: Add AI message to history
+            conversationHistory.push({ role: 'ai', content: aiText });
+            
+            // Display AI response and conditionally add the button
+            renderMessage(aiText, 'ai', whatsappData);
 
         } catch (error) {
             console.error('Error fetching AI response:', error);
+            // If the chat fails, add a fallback error message to history to maintain flow
+            conversationHistory.push({ role: 'ai', content: 'Sorry, I am currently unavailable.' }); 
             renderMessage('Sorry, I am currently unavailable.', 'ai');
         }
     }
