@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# os.environ.get('GEMINI_API_KEY')
+
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") 
 
 if not GEMINI_API_KEY:

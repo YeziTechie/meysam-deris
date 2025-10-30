@@ -47,6 +47,7 @@
         </div>
 
         <div class="chat-input">
+          {% csrf_token %}
             <input type="text" id="user-input" placeholder="Ask your question...">
             <button id="send-btn">Send</button>
         </div>
