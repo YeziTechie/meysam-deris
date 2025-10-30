@@ -78,7 +78,7 @@
     <section class="video-container js-scroll-video-1 animation blur">
       <div class="holder">
         <div class="skeleton"></div>
-        <video class="js-video-1" src=" {% static '/media/scroll/vid-2.mp4' %}" muted playsinline></video>
+        <video class="js-video-1" src=" {% static '/media/scroll/vid-2.mp4' %}" muted playsinline preload="auto"></video>
       </div>
     </section>
 
@@ -126,7 +126,7 @@
     <section class="video-container js-scroll-video-2">
       <div class="holder">
         <div class="skeleton"></div>
-        <video class="js-video-2 animation blur" src=" {% static '/media/scroll/vid.mp4' %}" muted playsinline></video>
+        <video class="js-video-2 animation blur" src=" {% static '/media/scroll/vid.mp4' %}" muted playsinline preload="auto"></video>
       </div>
     </section>
 
@@ -252,14 +252,28 @@
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    const vid = document.querySelector(".js-video-1");
-    const vid2 = document.querySelector(".js-video-2");
+    const vids = document.querySelectorAll(".js-video-1, .js-video-2");
 
-    [vid, vid2].forEach((video, i) => {
-      
-      video.addEventListener("loadedmetadata", () => {
-        video.play().catch(e => console.error("Video play failed:", e));
+    vids.forEach((video, i) => {
+      // make sure playsinline & muted for mobile
+      video.muted = true;
+      video.playsInline = true;
+      video.autoplay = false;
+      video.loop = false;
+      video.preload = "auto";
 
+      // wait for metadata
+      video.addEventListener("loadedmetadata", async () => {
+        // 👇 Safari fix: force render first frame
+        try {
+          video.currentTime = 0.01;
+          await video.play();
+          video.pause();
+        } catch (err) {
+          // ignore — user gesture may be required on very strict browsers
+        }
+
+        // then GSAP scroll control
         gsap.to(video, {
           currentTime: video.duration,
           ease: "none",
@@ -271,8 +285,7 @@
           },
         });
       });
-    });
-    
+    }); 
     const svgContainer = document.querySelector(".svg-container");
     const svg = document.querySelector(".line-svg");
     const path = svg.querySelector("path");
