@@ -7,6 +7,14 @@ from django.conf import settings
 from google import genai
 
 
+MODEL_NAME = "gemini-2.5-flash"
+
+try:
+    client = genai.Client(api_key='AIzaSyDWDXM0cd2EKpdSFmio3-jgpMMuhkG_iqY')
+except Exception as e:
+    print(f"Error initializing Gemini client: {e}")
+    client = None
+
 WHATSAPP_NUMBER = "971502397617" 
 
 SYSTEM_INSTRUCTION = """
@@ -30,13 +38,6 @@ You are the official, highly professional, and enthusiastic creative assistant f
 * **Step C: Message Format:** The pre-filled message text you generate must strictly follow this structure: "Hello Meysam Deris, I am interested in your [SERVICE CATEGORY] service, and here are the details: [USER PROVIDED DETAILS]. Please send me a quote."
 """
 
-MODEL_NAME = "gemini-2.5-flash"
-
-try:
-    client = genai.Client(api_key=settings.GEMINI_API_KEY)
-except Exception as e:
-    print(f"Error initializing Gemini client: {e}")
-    client = None
 
 @csrf_exempt
 def ai_chat_view(request):
