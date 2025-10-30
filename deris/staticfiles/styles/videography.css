@@ -1,0 +1,36 @@
+/* Tablet */
+@media (min-width: 461px) and (max-width: 1023px) {
+  .h-content {
+    width: 400px;
+  }
+}
+
+/* Laptop / Desktop */
+@media (min-width: 1024px) {
+  .h-content {
+    width: 500px;
+  }
+}
+
+.h-contents {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 30px;
+  margin-top: 50px;
+  scroll-behavior: smooth;
+  justify-content: center;
+  animation: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.h-content img,
+.h-content video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 15px;
+  object-fit: cover;  /* crop nicely */
+}

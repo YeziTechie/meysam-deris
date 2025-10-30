@@ -1,0 +1,24 @@
+
+.big-number {
+  display: flex; flex-direction: column; justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.big-number span {
+  font-size: 42px;
+  color: var(--theme);
+}
+
+.big-number .mid-line {
+  width: 15rem;
+  margin-top: 20px;
+  height: 2px;
+  background-color: var(--text);
+}
+
+.big-number .line {
+  height: 5rem;
+  width: 2px;
+  background-color: var(--text);
+}
