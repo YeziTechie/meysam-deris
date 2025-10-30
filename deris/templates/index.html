@@ -78,16 +78,9 @@
     <section class="video-container js-scroll-video-1 animation blur">
       <div class="holder">
         <div class="skeleton"></div>
-        <video
-          class="js-video-1"
-          src="{% static '/media/scroll/vid-2.mp4' %}"
-          muted
-          playsinline
-          preload="auto"
-          ></video>
+        <video class="js-video-1" src=" {% static '/media/scroll/vid-2.mp4' %}" muted playsinline></video>
       </div>
     </section>
-
 
     <section id="videography" class="h-gallery">
 
@@ -130,17 +123,10 @@
 
     </section>
 
-
-    <section class="video-container js-scroll-video-2 animation blur">
+    <section class="video-container js-scroll-video-2">
       <div class="holder">
         <div class="skeleton"></div>
-        <video
-          class="js-video-2"
-          src="{% static '/media/scroll/vid.mp4' %}"
-          muted
-          playsinline
-          preload="auto"
-          ></video>
+        <video class="js-video-2 animation blur" src=" {% static '/media/scroll/vid.mp4' %}" muted playsinline></video>
       </div>
     </section>
 
@@ -264,83 +250,29 @@
 
 {% block scripts %}
   <script>
-gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger);
 
-const vids = document.querySelectorAll(".js-video-1, .js-video-2");
+    const vid = document.querySelector(".js-video-1");
+    const vid2 = document.querySelector(".js-video-2");
 
-vids.forEach((video, i) => {
-  // ensure attributes won't force autoplay/loop behavior
-  video.autoplay = false;
-  video.loop = false;
-  video.muted = true;           // required for mobile autoplay if ever used
-  video.playsInline = true;
+    [vid, vid2].forEach((video, i) => {
+      
+      video.addEventListener("loadedmetadata", () => {
+        video.play().catch(e => console.error("Video play failed:", e));
 
-  // helper to create the scroll tween once seekable
-  function initScrollControl() {
-    // pause to ensure JS controls currentTime
-    try { video.pause(); } catch(e){}
-
-    // create/kill existing ScrollTriggers for safety
-    if (video._scrollTrigger) {
-      video._scrollTrigger.kill();
-      video._tween && video._tween.kill();
-    }
-
-    // small guard: if duration is 0 or NaN, skip
-    if (!video.duration || isNaN(video.duration) || video.duration === Infinity) return;
-
-    // create tween driven by ScrollTrigger
-    const tween = gsap.to(video, {
-      currentTime: video.duration,
-      ease: "none",
-      onUpdate: () => {
-        // keep it paused — some browsers may try to play
-        if (!video.paused) video.pause();
-      },
-      scrollTrigger: {
-        trigger: `.js-scroll-video-${i + 1}`,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 0.8,
-        onRefresh: self => {
-          // ensure duration is available if layout changed
-          // (ScrollTrigger will call onRefresh on resize)
-        }
-      }
+        gsap.to(video, {
+          currentTime: video.duration,
+          ease: "none",
+          scrollTrigger: {
+            trigger: `.js-scroll-video-${i + 1}`,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1,
+          },
+        });
+      });
     });
-
-    // store refs to allow cleanup if needed
-    video._tween = tween;
-    video._scrollTrigger = tween.scrollTrigger;
-  }
-
-  // Prefer canplaythrough (seekable), fallback to loadedmetadata
-  const onCanPlay = () => {
-    // Some browsers still block immediate seeking — try a small seek to force readiness
-    try {
-      video.currentTime = 0.01;
-    } catch (e) {}
-    setTimeout(() => initScrollControl(), 50);
-    video.removeEventListener("canplaythrough", onCanPlay);
-    video.removeEventListener("canplay", onCanPlay);
-    video.removeEventListener("loadedmetadata", onCanPlay);
-  };
-
-  video.addEventListener("canplaythrough", onCanPlay, { once: true });
-  video.addEventListener("canplay", onCanPlay, { once: true });
-  video.addEventListener("loadedmetadata", onCanPlay, { once: true });
-
-  // On iOS sometimes the video becomes available after a user gesture; refresh on touch
-  window.addEventListener("touchstart", () => {
-    if (!video._tween) {
-      try {
-        video.currentTime = 0.01;
-      } catch (e) {}
-    }
-  }, { once: true });
-});
-
-
+    
     const svgContainer = document.querySelector(".svg-container");
     const svg = document.querySelector(".line-svg");
     const path = svg.querySelector("path");
@@ -350,7 +282,6 @@ vids.forEach((video, i) => {
     }
     resizeSVG();
     window.addEventListener("resize", resizeSVG);
-    
     const pathLength = path.getTotalLength();
     path.style.strokeDasharray = pathLength;
     path.style.strokeDashoffset = pathLength;
