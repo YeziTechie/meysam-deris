@@ -1,6 +1,7 @@
 .brands {
   text-align: center;
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
   padding: 80px 0;
   background: #0b0b0b2c;
 }

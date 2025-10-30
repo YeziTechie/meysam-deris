@@ -1,6 +1,6 @@
 
 .name {
-  margin-top: 50px;
+  margin-top: 200px;
 
 }
 
@@ -26,7 +26,6 @@
 @keyframes name {
   0% {
     stroke-dashoffset: 50;
-    filter: blur(1px);
   }
 
   80% {
@@ -37,8 +36,6 @@
   100% {
     fill: transparent;
     stroke-dashoffset: 0;
-    stroke-width: 0.1;
-
-    filter: blur(0px);
+    stroke-width: 0.2;
   }
 }

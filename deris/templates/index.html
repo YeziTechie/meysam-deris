@@ -10,14 +10,11 @@
     </svg>
   </div>
 
-  <div class="fixed-nav">
-    <div class="nav-logo" onclick="window.location.href = '{% url 'profile' %}'">
-      <img src="{% static '/media/logo.jpg' %}" alt="Logo">
-    </div>
+  <div class="index-nav">
     <div class="nav-buttons">
+      <button class="nav-item" data-target="#ai">AI</button>
       <button class="nav-item" data-target="#videography">Videography</button>
       <button class="nav-item" data-target="#photography">Photography</button>
-      <button class="nav-item" data-target="#ai">AI</button>
     </div>
   </div>
 
@@ -286,6 +283,8 @@
         });
       });
     }); 
+
+
     const svgContainer = document.querySelector(".svg-container");
     const svg = document.querySelector(".line-svg");
     const path = svg.querySelector("path");

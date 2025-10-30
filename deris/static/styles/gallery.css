@@ -32,6 +32,8 @@
   position: relative;
   flex-direction: row;
   flex-wrap: nowrap;
+  width: 80%;
+  margin: 0 auto;
   column-gap: 30px;
   margin-top: 50px;
   scroll-behavior: smooth;
@@ -109,7 +111,7 @@
 .h-gallery .media {
   display: flex;
   justify-content: center;
-  height: 200px;
+  height: 250px;
 }
 .gallery-video {
   border-radius: 22px;
