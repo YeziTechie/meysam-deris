@@ -1,23 +1,14 @@
-# chat_app/views.py
-
 import json
-import os
 import time
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from google import genai 
-from dotenv import load_dotenv
+from django.conf import settings
 
+from google import genai
 
-load_dotenv()
-
-# --- NEW CONFIGURATION ---
-# 1. AI will remember context (multi-turn chat)
-# 2. AI will not say it is a chatbot or use "Meysam Deris AI Chatbot"
 
 WHATSAPP_NUMBER = "971502397617" 
 
-# 🎯 UPDATED SYSTEM INSTRUCTION: Removed self-identification and explicit greeting rule
 SYSTEM_INSTRUCTION = """
 You are the official, highly professional, and enthusiastic creative assistant for the AI artist **Meysam Deris**.
 
@@ -38,13 +29,11 @@ You are the official, highly professional, and enthusiastic creative assistant f
 * **Step B: Final Statement:** Generate the pre-filled message text, and your final statement MUST be: "For a custom quote, please click the WhatsApp button below to send your request directly to Meysam Deris!"
 * **Step C: Message Format:** The pre-filled message text you generate must strictly follow this structure: "Hello Meysam Deris, I am interested in your [SERVICE CATEGORY] service, and here are the details: [USER PROVIDED DETAILS]. Please send me a quote."
 """
-# -------------------------
 
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") 
 MODEL_NAME = "gemini-2.5-flash"
 
 try:
-    client = genai.Client(api_key=GEMINI_API_KEY)
+    client = genai.Client(api_key=settings.GEMINI_API_KEY)
 except Exception as e:
     print(f"Error initializing Gemini client: {e}")
     client = None
