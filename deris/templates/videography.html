@@ -14,17 +14,6 @@
     </svg>
   </div>
 
-  <div class="fixed-nav">
-    <div class="nav-logo" onclick="window.location.href = '{% url 'profile' %}'">
-      <img src="{% static '/media/logo.jpg' %}" alt="Logo">
-    </div>
-    <div class="nav-buttons">
-      <button class="nav-item" data-target="#videography">Videography</button>
-      <button class="nav-item" data-target="#photography">Photography</button>
-      <button class="nav-item" data-target="#ai">AI</button>
-    </div>
-  </div>
-
   <main>
 
     <section id="videography" class="h-gallery">
@@ -57,44 +46,7 @@
             </div>
           </div>
         {% endfor %}
-
       </div>
-
-    </section>
-
-    <section class="blurry contact" style="border: 1px solid var(--theme)">
-      <div class="title">
-        <h2>Contact Me</h2>
-      </div>
-      <form action="post" class="form">
-        <div class="field">
-          <div class="title">
-            <h4>Name:</h4>
-          <div>
-          <div class="input">
-            <input type="text">
-          </div>
-        </div>
-        <div class="field">
-          <div class="title">
-            <h4>Email:</h4>
-          </div>
-          <div class="input">
-            <input type="email">
-          </div>
-        </div>
-        <div class="field">
-          <div class="title">
-            <h4>Message:</h4>
-          </div>
-          <div class="input">
-            <input type="text" class="message" placeholder="Write your message here">
-          </div>
-        </div>
-        <div class="btn">
-          <button type="submit">Send</button>
-        </div>
-      </form>
     </section>
   </main>
 {% endblock %}

@@ -21,7 +21,7 @@
   margin: 0 auto;
 }
 
-.field input {
+.field input, .field textarea {
   outline: none;
   border-radius: 2px;
   background-color: rgba(255, 255, 255, 0.075);
@@ -36,7 +36,7 @@
   transition: all 0.5s ease;
 }
 
-.field input:focus {
+.field input:focus .field textarea:focus {
     box-shadow: 15px 15px 20px #d0fe1759;
     transform: translate(-5px, -5px);
 }

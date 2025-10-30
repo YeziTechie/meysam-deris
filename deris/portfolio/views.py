@@ -28,19 +28,27 @@ def profile_page(request):
         'ai_items': ai_items
     })
 
-def contact_form(request):
+def contact_us(request):
     if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        message = request.POST.get('message')
-        
+        name = request.POST.get('name', '').strip()
+        email = request.POST.get('email', '').strip()
+        message = request.POST.get('message', '').strip()
+
+        if not (name and email and message):
+            return JsonResponse({'status': 'error', 'message': 'All fields are required.'})
+
         full_message = f"From: {name} ({email})\n\n{message}"
-        
+
+        print('\n\n' + settings.EMAIL_HOST_USER + settings.EMAIL_HOST_PASSWORD + '\n\n')
+
         send_mail(
             subject="New Contact Form Message",
             message=full_message,
             from_email=settings.EMAIL_HOST_USER,
             recipient_list=[settings.EMAIL_HOST_USER],
         )
+
         return JsonResponse({'status': 'success'})
+
+    return render(request, 'contact-us.html')
 
