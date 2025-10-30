@@ -2,9 +2,6 @@ import os
 
 from pathlib import Path
 
-
-load_dotenv()
-
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
 
 if not GEMINI_API_KEY:
@@ -105,3 +102,4 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'clientemail@gmail.com'
 EMAIL_HOST_PASSWORD = 'app-password'
 
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
