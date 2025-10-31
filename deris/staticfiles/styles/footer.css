@@ -1,0 +1,43 @@
+.footer-content {
+  background-color: transparent;
+  backdrop-filter: blur(30px);
+  border: 1px solid var(--theme);
+  padding: 10px;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+footer .info p {
+  padding-left: 10px;
+  border-left: 5px solid var(--theme);
+  color: var(--text);
+}
+
+.social a{
+  display: block;
+  text-align: center;
+  color: var(--theme);
+}
+
+.copyright {
+  font-size: 14px;
+  text-align: center;
+  margin: 0;
+  margin-top: 40px;
+}
+
+.social-link {
+  display: inline-block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icon {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1); /* white icon look */
+}
+
+.social-link:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 6px #e1306c); /* Instagram pink glow */
+}

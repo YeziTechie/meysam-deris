@@ -20,7 +20,7 @@ SECRET_KEY = 'django-insecure-il*c=nwegk!=@hfc=h@s(81%wrwqds3uzfm+y3i=75_vy^#dgh
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['meysamderis.pythonanywhere.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -110,3 +110,4 @@ EMAIL_HOST_USER = 'meysamderis@gmail.com'
 EMAIL_HOST_PASSWORD = APP_PASSWORD
 DEFAULT_FROM_EMAIL = 'Meysam Deris Website'
 
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
