@@ -18,24 +18,15 @@
   stroke: var(--theme);
   stroke-width: 0.1;
   stroke-dasharray: 50;
-  stroke-dashoffset: 50;
-  animation: name 4s ease-in-out forwards;
-  animation-delay: 1.4s;
+  stroke-dashoffset: 0;
+  animation: name 8s linear infinite;
 }
 
 @keyframes name {
-  0% {
-    stroke-dashoffset: 50;
-  }
-
-  80% {
-    fill: transparent;
-    stroke-width: 0.1;
-  }
-
-  100% {
-    fill: transparent;
+  from {
     stroke-dashoffset: 0;
-    stroke-width: 0.2;
+  }
+  to {
+    stroke-dashoffset: -100; /* or +50 depending on desired direction */
   }
 }

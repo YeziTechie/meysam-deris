@@ -46,6 +46,7 @@ def contact_us(request):
             message=full_message,
             from_email=settings.EMAIL_HOST_USER,
             recipient_list=[settings.EMAIL_HOST_USER],
+            fail_silently=False,
         )
 
         return JsonResponse({'status': 'success'})

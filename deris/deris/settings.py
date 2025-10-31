@@ -105,4 +105,5 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'meysamderis@gmail.com'
 EMAIL_HOST_PASSWORD = app_password
+DEFAULT_FROM_EMAIL = 'Meysam Deris Website'
 
