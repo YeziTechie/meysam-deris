@@ -1,8 +1,4 @@
-
-
 gsap.registerPlugin(ScrollTrigger);
-
-
 
 const navItems = document.querySelectorAll(".nav-item");
 
@@ -30,3 +26,54 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+
+
+
+  function navBtn1Expand () {
+    const navBtn1 = document.querySelector('.js-nav-btn-1-1');
+    const navBtn2 = document.querySelector('.js-nav-btn-1-2');
+    const navBtn3 = document.querySelector('.js-nav-btn-1-3');
+    const navBtn4 = document.querySelector('.js-nav-btn-1-4');
+    const navBtn5 = document.querySelector('.js-nav-btn-1-5');
+  
+    navBtn1.classList.add('nav-btn-1-clicked', 'nav-btn-1-1-clicked');
+    navBtn2.classList.add('nav-btn-1-clicked', 'nav-btn-1-2-clicked');
+    navBtn3.classList.add('nav-btn-1-clicked', 'nav-btn-1-3-clicked');
+    navBtn4.classList.add('nav-btn-1-clicked', 'nav-btn-1-4-clicked');
+    navBtn5.classList.add('nav-btn-1-clicked', 'nav-btn-1-5-clicked');
+  }
+  
+  function navBtn1Shrink () {
+    const navBtn1 = document.querySelector('.js-nav-btn-1-1');
+    const navBtn2 = document.querySelector('.js-nav-btn-1-2');
+    const navBtn3 = document.querySelector('.js-nav-btn-1-3');
+    const navBtn4 = document.querySelector('.js-nav-btn-1-4');
+    const navBtn5 = document.querySelector('.js-nav-btn-1-5');
+  
+    navBtn1.classList.remove('nav-btn-1-clicked', 'nav-btn-1-1-clicked');
+    navBtn2.classList.remove('nav-btn-1-clicked', 'nav-btn-1-2-clicked');
+    navBtn3.classList.remove('nav-btn-1-clicked', 'nav-btn-1-3-clicked');
+    navBtn4.classList.remove('nav-btn-1-clicked', 'nav-btn-1-4-clicked');
+    navBtn5.classList.remove('nav-btn-1-clicked', 'nav-btn-1-5-clicked');
+  }
+  
+  function navBtn1Handler () {
+    const e = document.querySelector('.js-nav-btn-1-1')
+  
+    if (e.classList.contains('nav-btn-1-1-clicked')) {
+      navBtn1Shrink()
+    } else {
+      navBtn1Expand()
+    }
+  }
+  
+  document.querySelector('.js-nav-btn-1-1').addEventListener('click', navBtn1Handler);
+
+
+const navbar = document.getElementById('navbar');
+const toggleBtn = document.getElementById('toggle-btn');
+
+toggleBtn.addEventListener('click', () => {
+  navbar.classList.toggle('open');
+});
+

@@ -45,3 +45,18 @@ img {
 * {
     box-sizing: border-box; /* Ensures width: 100% includes padding/border */
 }
+
+.developer {
+  text-align: center;
+  width: 100%;
+}
+
+.developer a {
+  text-decoration: none;
+  color: var(--theme);
+  transition: 0.5s ease all;
+}
+
+.developer a:hover {
+  color: purple;
+}
