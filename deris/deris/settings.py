@@ -7,7 +7,7 @@ from decouple import config
 
 GEMINI_API_KEY = config('GEMINI_API_KEY')
 APP_PASSWORD = config('APP_PASSWORD')
-ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
+ALLOWED_HOSTS = [host.strip() for host in config('ALLOWED_HOSTS').split(',')] 
 DEBUG = config('DEBUG', cast=bool)
 
 
@@ -19,8 +19,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-il*c=nwegk!=@hfc=h@s(81%wrwqds3uzfm+y3i=75_vy^#dgh'
 
 DEBUG = True
-
-ALLOWED_HOSTS = ['meysamderis.pythonanywhere.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
