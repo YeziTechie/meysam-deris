@@ -5,8 +5,11 @@ from pathlib import Path
 from decouple import config
 
 
-GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY') or config('GEMINI_API_KEY')
-app_password = config('APP_PASSWORD')
+GEMINI_API_KEY = config('GEMINI_API_KEY')
+APP_PASSWORD = config('APP_PASSWORD')
+ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
+DEBUG = config('DEBUG', cast=bool)
+
 
 if not GEMINI_API_KEY:
     print("WARNING: GEMINI_API_KEY not found in environment or .env file.")
@@ -104,6 +107,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'meysamderis@gmail.com'
-EMAIL_HOST_PASSWORD = app_password
+EMAIL_HOST_PASSWORD = APP_PASSWORD
 DEFAULT_FROM_EMAIL = 'Meysam Deris Website'
 
