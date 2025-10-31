@@ -5,7 +5,7 @@
   <head>
     <title>{% block title %}My Website{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/media/logo.jpg' %}"/>
     <link rel="stylesheet" href="{% static 'styles/contact.css' %}">
     <link rel="stylesheet" href="{% static 'styles/name-animation.css' %}">
     <link rel="stylesheet" href="{% static 'styles/re-design.css' %}">
@@ -31,7 +31,43 @@
   </head>
 
   <body>
+    <div class="fixed-nav">
 
+      <div class="nav-logo" onclick="window.location.href = '{% url 'profile' %}'">
+        <img src="{% static '/media/logo.jpg' %}" alt="Logo">
+      </div>
+
+      <div class="nav-btn" id="toggle-btn">
+        <div class="nav-btn-1-1 js-nav-btn-1-1">
+          <div class="nav-btn-1-2 js-nav-btn-1-2">
+            <div class="nav-btn-1-3 js-nav-btn-1-3">
+              <div class="nav-btn-1-4 js-nav-btn-1-4">
+                <div class="nav-btn-1-5 js-nav-btn-1-5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="top-nav-links">
+        <div class="top-nav-link" onclick="window.location.href = '{% url 'profile' %}'">Home</div>
+        <div class="top-nav-link" onclick="window.location.href = '{% url 'ai' %}'">AI</div>
+        <div class="top-nav-link" onclick="window.location.href = '{% url 'photography' %}'">Photography</div>
+        <div class="top-nav-link" onclick="window.location.href = '{% url 'videography' %}'">Videography</div>
+        <div class="top-nav-link" style="color: var(--theme);" onclick="window.location.href = '{% url 'contact' %}'">Contact us</div>
+      </div>
+
+    </div>
+
+    <div class="navbar" id="navbar">
+      <div class="links">
+        <div class="link" onclick="window.location.href = '{% url 'profile' %}'">Home</div>
+        <div class="link" onclick="window.location.href = '{% url 'ai' %}'">AI</div>
+        <div class="link" onclick="window.location.href = '{% url 'photography' %}'">Photography</div>
+        <div class="link" onclick="window.location.href = '{% url 'videography' %}'">Videography</div>
+        <div class="link" onclick="window.location.href = '{% url 'contact' %}'">Contact us</div>
+      </div>
+    </div>
 
     <button id="chat-toggle-btn">
       <img src="{% static 'media/ai/v.jpg' %}" alt="AI Chat Icon">
@@ -69,8 +105,9 @@
               <img src="{% static 'instagram-icon-svgrepo-com.svg' %}" alt="Instagram" class="social-icon" />
             </a>
           </div>
-          <p class="copyright">&copy; 2023 Meysam Deris. All rights reserved.</p>
+          <p class="copyright">&copy; 2021 Meysam Deris. All rights reserved.<br> Others X Studio</p>
         </div>
+        <div class="developer"><p>Design by <a target="_blank" href="https://www.t.me/targoon">YeziTechie</a></p></div>
       </footer>
     </div>
     

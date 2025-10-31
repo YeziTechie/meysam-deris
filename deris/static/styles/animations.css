@@ -47,7 +47,7 @@
 }
 
 .h-line-scale.show {
-  transform: scale(1);
+  transform: scale(0.2, 1);
 }
 
 .perspective {

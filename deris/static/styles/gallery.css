@@ -32,6 +32,8 @@
   position: relative;
   flex-direction: row;
   flex-wrap: nowrap;
+  width: 80%;
+  margin: 0 auto;
   column-gap: 30px;
   margin-top: 50px;
   scroll-behavior: smooth;
@@ -109,20 +111,13 @@
 .h-gallery .media {
   display: flex;
   justify-content: center;
-  height: 200px;
+  height: 250px;
 }
 .gallery-video {
   border-radius: 22px;
   width: 100%;
   object-fit:cover;
   height: 100%;
-}
-
-
-.gallery-title h4{
- color: var(--muted);
- font-size: 18px;
- font-style: italic;
 }
 
 .title h2 {
@@ -166,4 +161,11 @@
 .media-desc-title {
   color: var(--theme);
   font-size: 22px;
+}
+
+.sec-desc {
+  font-size: 26px;
+  font-weight: 100;
+  
+  text-align: center;
 }

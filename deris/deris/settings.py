@@ -2,7 +2,11 @@ import os
 
 from pathlib import Path
 
-GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
+from decouple import config
+
+
+GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY') or config('GEMINI_API_KEY')
+app_password = config('APP_PASSWORD')
 
 if not GEMINI_API_KEY:
     print("WARNING: GEMINI_API_KEY not found in environment or .env file.")
@@ -99,7 +103,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'clientemail@gmail.com'
-EMAIL_HOST_PASSWORD = 'app-password'
+EMAIL_HOST_USER = 'meysamderis@gmail.com'
+EMAIL_HOST_PASSWORD = app_password
+DEFAULT_FROM_EMAIL = 'Meysam Deris Website'
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
