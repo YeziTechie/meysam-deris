@@ -34,3 +34,28 @@
   border-radius: 15px;
   object-fit: cover;  /* crop nicely */
 }
+
+.gallery-title {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery-line {
+  height: 1px;
+  width: 40px;
+  margin: 20px;
+
+  background-color: var(--theme);
+}
+
+.gallery-title h1 {
+  color: var(--theme);
+}
+
+.gallery-title h3 {
+  font-size: 22px;
+  color: var(--muted);
+}
