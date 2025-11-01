@@ -12,6 +12,9 @@
   background-color: transparent;
   backdrop-filter: blur(10px);
   border: 3px solid black;
+  box-shadow: 
+  0px 100px 200px black,
+  0px-100px 200px black;
   padding: 5px;
 }
 
