@@ -16,11 +16,21 @@
   position:fixed;
   display: flex;
   z-index: 1000;
+<<<<<<< HEAD
   left: 20px;
   flex-direction: row;
   top: 77px;
   background-color: black;
   backdrop-filter: none;
+=======
+  padding: 10px;
+  padding-left: 20px;
+  left: 0px;
+  right: 0px;
+  flex-direction: row;
+  top: 77px;
+  backdrop-filter: blur(30px);
+>>>>>>> f7b17aa4e6c8077bc895d396651564eb49db68f0
   justify-content: end;
   align-items: end;
 }
