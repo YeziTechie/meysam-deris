@@ -6,7 +6,7 @@
   border: 1px solid var(--theme);
   padding: 10px;
 
-  margin: 200px auto;
+  margin: 100px auto;
   max-width: 700px;
   
   display: flex;
@@ -59,4 +59,49 @@
   font-size: 16px;
   border: none;
   border-radius: 4px;
+}
+
+
+.contact-title {
+  text-align: center;
+  margin-top: 100px;
+  color: var(--theme);
+  padding: 80px 20px;
+  border: 1px solid var(--theme);
+  background: linear-gradient(135deg, #0d0d0d4f, #24270b69);
+}
+
+.contact-title h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.contact-title .animation {
+  margin-bottom: 10px;
+}
+
+.fade-in {
+  animation: fadeIn 2s ease-in-out;
+}
+
+.contact-title h3 {
+  font-size: 1.2rem;
+  color: #aaa;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.contact-title p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
