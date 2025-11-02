@@ -19,7 +19,7 @@
   stroke-width: 0.1;
   stroke-dasharray: 50;
   stroke-dashoffset: 0;
-  animation: name 8s linear infinite;
+  animation: name 4s linear forwards;
 }
 
 @keyframes name {
@@ -27,6 +27,6 @@
     stroke-dashoffset: 0;
   }
   to {
-    stroke-dashoffset: -100; /* or +50 depending on desired direction */
+    stroke-dashoffset: 50; /* or +50 depending on desired direction */
   }
 }
