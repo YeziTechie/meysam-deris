@@ -5,7 +5,7 @@
 .contact {
   border: 1px solid var(--theme);
   padding: 10px;
-
+  border-radius: 25px;
   margin: 100px auto;
   max-width: 700px;
   
@@ -28,18 +28,24 @@
   color: var(--text);
   width: 100%;
   margin-left: 10px;
-  box-shadow: 5px 5px 5px #d0fe1767;
   box-sizing: border-box;
-  padding: 4px;
+  padding: 8px;
+  border-radius: 8px;
   border: 1px solid var(--theme);
 
   transition: all 0.5s ease;
 }
 
-.field input:focus .field textarea:focus {
-    box-shadow: 15px 15px 20px #d0fe1759;
+ input:hover, textarea:hover {
+  opacity: 0.8;
+  border-color: black;
+}
+.field input:focus, .field textarea:focus {
+    box-shadow: 10px 10px 30px #d0fe175d;
     transform: translate(-5px, -5px);
 }
+
+
 
 .btn {
   display: flex;
@@ -64,11 +70,13 @@
 
 .contact-title {
   text-align: center;
-  margin-top: 100px;
-  color: var(--theme);
+  color: var(--theme);  max-width: 700px;
   padding: 80px 20px;
+  margin: 0 auto;
+  margin-top: 100px;
+  border-radius: 25px;
   border: 1px solid var(--theme);
-  background: linear-gradient(135deg, #0d0d0d4f, #24270b69);
+  background: linear-gradient(135deg, #0d0d0d4f, #24270bc5);
 }
 
 .contact-title h1 {
@@ -79,6 +87,7 @@
 }
 
 .contact-title .animation {
+  border-radius: 25px;
   margin-bottom: 10px;
 }
 

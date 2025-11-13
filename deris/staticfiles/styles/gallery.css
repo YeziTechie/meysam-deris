@@ -12,12 +12,18 @@
   display: flex;
   flex-direction: column;
   height: max-content;
+  padding: 10px;
+}
+
+.h-gallery {
+  padding: 10px;
 }
 
 .h-scroll-wrapper {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  padding: 10px;
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: none;
