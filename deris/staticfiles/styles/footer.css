@@ -16,6 +16,10 @@ footer .info p {
   color: var(--text);
 }
 
+.num {
+  color: var(--theme);
+}
+
 .social a{
   display: block;
   text-align: center;
