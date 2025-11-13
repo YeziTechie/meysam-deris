@@ -11,11 +11,9 @@
 .blurry {
   background-color: transparent;
   backdrop-filter: blur(10px);
-  border: 3px solid black;
   box-shadow: 
   0px 100px 200px black,
   0px-100px 200px black;
-  padding: 5px;
 }
 
 .btn button {
@@ -23,7 +21,7 @@
   background-color: #d0fe171a;
   border: 1px solid var(--theme);
   color: var(--text);
-  border-radius: 0 ;
+  border-radius: 10px;
   transition: ease 1s all;
 }
 
@@ -38,8 +36,4 @@
 
 main {
   width: 100%;
-}
-
-.nbr {
-  border-radius: 15px;
 }
