@@ -8,3 +8,10 @@ document.querySelectorAll(".lazy-media").forEach(media => {
     media.style.display = "block";
   }
 });
+
+
+setInterval(() => {
+  document.querySelectorAll('.numnum').forEach(el => {
+    el.style.color = 'var(--theme)';
+  });
+}, 5000);
