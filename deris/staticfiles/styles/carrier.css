@@ -32,7 +32,7 @@
 .blob-btn {
   z-index: 10;
   position: relative;
-  padding: 10px 16px;
+  padding: 10px 30px;
   text-align: center;
   color: var(--theme);
   font-size: 16px;
@@ -131,4 +131,23 @@
   .blob-btn:hover .blob-btn__blob {
     transform: translateZ(0) scale(1.4);
   }
+}
+
+
+
+.navbar .carrier-link {
+  border: none;
+  opacity: 0;
+  padding: none;
+  transition: ease 0.5s all ;
+  margin: 100px auto;
+  width: 100%;
+}
+
+.navbar.open .carrier-link {
+  border: none;
+  opacity: 1;
+  padding: none;
+  margin: 100px auto;
+  width: 100%;
 }

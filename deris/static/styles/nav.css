@@ -204,8 +204,8 @@
   width: 0px; /* collapsed width */
   display: flex;
   flex-direction: column;
-  padding-top: 50px;
   padding: 0px;
+  padding-top: 200px;
   background-color: rgba(0,0,0,0.2);
   backdrop-filter: blur(100px);
   border-right: 1px solid black;
@@ -218,8 +218,9 @@
 
 .navbar.open {
   width: 200px; /* expanded width */
-  padding: 20px;
-  box-shadow: 0px 0px 50px var(--theme);
+  padding: 10px;
+  padding-top: 200px;
+  box-shadow: 0px 0px 10px var(--theme);
 
 
 }
@@ -248,7 +249,7 @@
 .links, .logout, .profile .username .profile {
   opacity: 0;
   width: 200px;
-  transform: translateX(-50px);
+  /* transform: translateX(-50px); */
   transition: opacity 1s ease, transform 1s ease;
 }
 
