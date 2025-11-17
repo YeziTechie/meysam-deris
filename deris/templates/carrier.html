@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block title %}Meysam Deris - Let's Work Together{% endblock %}
+    
+{% block style %}
+{% endblock %}
+
+{% block body %}
+
+
+  <main>
+
+<div class="title contact-title">
+  <h1>Carrier</h1>
+  <div class="animation fade-in">
+    <h3>Looking for a team?</h3>
+  </div>
+  <p style="text-align: left;" >
+    We are always looking for talented and creative individuals to join our network.
+    If you are passionate about visual arts, filmmaking, AI-generated content, or photography, feel free to send us your portfolio.
+    We review all submissions carefully and will contact you if there is a suitable opportunity
+  </p>
+
+  <div class="info">
+    <p>Email: <b>contact@meysamderis.com</b></p>
+    <p>Number: <b>+971 50 239 7617</b></p>
+</div>
+</div>
+
+
+    <section class="blurry contact" style="border: 1px solid var(--theme)">
+      <div class="title">
+        <h2>Contact Me</h2>
+      </div>
+      <form action="{% url 'contact' %}" method="POST" class="form">
+        {% csrf_token %}
+        <div class="field">
+          <div class="title"><h4>Name:</h4></div>
+          <div class="input">
+            <input type="text" name="name" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="title"><h4>Email:</h4></div>
+          <div class="input">
+            <input type="email" name="email" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="title"><h4>Message:</h4></div>
+          <div class="input">
+            <textarea name="message" class="message" placeholder="Write your message here" required></textarea>
+          </div>
+        </div>
+
+        <div class="btn">
+          <button type="submit">Send</button>
+        </div>
+      </form>
+    </section>
+
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const svgContainer = document.querySelector(".svg-container");
+    const svg = document.querySelector(".line-svg");
+    const path = svg.querySelector("path");
+
+    function resizeSVG() {
+      svgContainer.style.height = `${document.documentElement.scrollHeight}px`;
+    }
+    resizeSVG();
+    window.addEventListener("resize", resizeSVG);
+
+    const pathLength = path.getTotalLength();
+    path.style.strokeDasharray = pathLength;
+    path.style.strokeDashoffset = pathLength;
+
+    gsap.fromTo(
+      path,
+      { strokeDashoffset: pathLength },
+      {
+        strokeDashoffset: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".svg-container",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: true,
+        },
+      }
+    );
+  </script>
+{% endblock %}

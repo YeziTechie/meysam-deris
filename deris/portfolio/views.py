@@ -10,6 +10,9 @@ def photography_list(request):
     photos = Photography.objects.all().order_by('-priority')
     return render(request, 'photography.html', {'photos': photos})
 
+def carrier(request):
+    return render(request, 'carrier.html')
+
 def videography_list(request):
     videos = Videography.objects.all().order_by('-priority')
     return render(request, 'videography.html', {'videos': videos})
